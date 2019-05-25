@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import styles from "./style";
+import styles from "../style";
 import { login } from "../../store/actions/actions";
 
 import {
@@ -16,6 +16,7 @@ import {
 import { Button } from "react-native-elements";
 import icon from "./icon.png";
 import { Actions } from "react-native-router-flux";
+import CustomTextInput from "../general/CustomTextInput";
 
 class Login extends React.Component {
   state = {
@@ -39,20 +40,14 @@ class Login extends React.Component {
           <View style={styles.loginScreenContainer}>
             <View style={styles.loginFormView}>
               <Image source={icon} style={styles.image} />
-              <TextInput
+              <CustomTextInput
                 placeholder="Username"
-                placeholderColor="#c4c3cb"
-                placeholderTextColor="#000000"
-                style={styles.loginFormTextInput}
                 onChangeText={value => this.setState({ username: value })}
               />
-              <TextInput
+              <CustomTextInput
                 placeholder="Password"
-                placeholderColor="#c4c3cb"
-                placeholderTextColor="#000000"
-                style={styles.loginFormTextInput}
-                secureTextEntry={true}
                 onChangeText={value => this.setState({ password: value })}
+                hidden
               />
               <Button
                 buttonStyle={styles.loginButton}

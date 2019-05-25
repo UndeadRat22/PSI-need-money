@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import styles from "../login/style";
+import styles from "../style";
 import icon from "../login/icon.png";
 import { register, loadUsers } from "../../store/actions/actions";
 
@@ -8,15 +8,15 @@ import { Button } from "react-native-elements";
 import {
   Keyboard,
   View,
-  TextInput,
   Text,
   TouchableWithoutFeedback,
   KeyboardAvoidingView,
   TouchableOpacity,
-  Image,
-  StyleSheet
+  Image
 } from "react-native";
 import { Actions } from "react-native-router-flux";
+
+import CustomTextInput from "../general/CustomTextInput";
 
 class Register extends React.Component {
   state = {
@@ -45,35 +45,23 @@ class Register extends React.Component {
           <View style={styles.loginScreenContainer}>
             <View style={styles.loginFormView}>
               <Image source={icon} style={styles.image} />
-              <TextInput
+              <CustomTextInput
                 placeholder="Email"
-                placeholderColor="#c4c3cb"
-                placeholderTextColor="#000000"
-                style={styles.loginFormTextInput}
                 onChangeText={value => this.setState({ email: value })}
               />
-              <TextInput
+              <CustomTextInput
                 placeholder="Username"
-                placeholderColor="#c4c3cb"
-                placeholderTextColor="#000000"
-                style={styles.loginFormTextInput}
                 onChangeText={value => this.setState({ username: value })}
               />
-              <TextInput
+              <CustomTextInput
                 placeholder="Password"
-                placeholderColor="#c4c3cb"
-                placeholderTextColor="#000000"
-                style={styles.loginFormTextInput}
-                secureTextEntry={true}
                 onChangeText={value => this.setState({ password: value })}
+                hidden
               />
-              <TextInput
+              <CustomTextInput
                 placeholder="Confirm Password"
-                placeholderColor="#c4c3cb"
-                placeholderTextColor="#000000"
-                style={styles.loginFormTextInput}
-                secureTextEntry={true}
                 onChangeText={value => this.setState({ confirm: value })}
+                hidden
               />
               <Button
                 buttonStyle={styles.loginButton}
