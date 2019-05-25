@@ -1,17 +1,27 @@
-import { LOGIN_SUCCESS } from "../actions/types";
+import { LOGIN_SUCCESS, LOGIN_FAILURE } from "../actions/types";
 const initialState = {
-  username: null,
-  error: null
+  user: null,
+  error: null,
+  success: undefined
 };
 
 const loginReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_SUCCESS: {
-      const { username } = action.payload;
+      const { user } = action.payload;
       return {
         ...state,
-        username,
-        error: null
+        user,
+        error: null,
+        success: true
+      };
+    }
+    case LOGIN_FAILURE: {
+      return {
+        ...state,
+        user: null,
+        error: action.error,
+        success: false
       };
     }
     default:

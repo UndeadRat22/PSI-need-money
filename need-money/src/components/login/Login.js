@@ -6,7 +6,7 @@ import { login } from "../../store/actions/actions";
 import {
   Keyboard,
   View,
-  TextInput,
+  Alert,
   TouchableWithoutFeedback,
   TouchableOpacity,
   Text,
@@ -26,10 +26,17 @@ class Login extends React.Component {
   };
 
   loginSubmitHandler = () => {
-    const { tryLogin } = this.props;
+    const { tryLogin, userInfo } = this.props;
     const { username, password } = this.state;
-    tryLogin(username, password);
+    tryLogin(username, password, userInfo.users);
   };
+
+  componentDidUpdate() {
+    const { loginInfo } = this.props;
+    if (loginInfo.success) {
+      Actions.push("profile");
+    }
+  }
 
   render() {
     const { loginInfo } = this.props;
@@ -71,14 +78,15 @@ class Login extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    loginInfo: state.login
+    loginInfo: state.login,
+    userInfo: state.registration
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    tryLogin: (username, password) => {
-      dispatch(login(username, password));
+    tryLogin: (username, password, users) => {
+      dispatch(login(username, password, users));
     }
   };
 };
