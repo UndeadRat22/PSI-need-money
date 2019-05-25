@@ -8,12 +8,14 @@ import {
   View,
   TextInput,
   TouchableWithoutFeedback,
-  Alert,
+  TouchableOpacity,
+  Text,
   KeyboardAvoidingView,
   Image
 } from "react-native";
 import { Button } from "react-native-elements";
 import icon from "./icon.png";
+import { Actions } from "react-native-router-flux";
 
 class Login extends React.Component {
   state = {
@@ -57,6 +59,13 @@ class Login extends React.Component {
                 onPress={() => this.loginSubmitHandler()}
                 title="Login"
               />
+              <TouchableOpacity
+                onPress={() => {
+                  Actions.register();
+                }}
+              >
+                <Text style={styles.whiteText}>Don't have an account ?</Text>
+              </TouchableOpacity>
             </View>
           </View>
         </TouchableWithoutFeedback>

@@ -12,12 +12,12 @@ const initialState = {
     },
     {
       username: "Barock2",
-      email: "obamer@hotmail.com",
+      email: "obamer2@hotmail.com",
       password: "123"
     },
     {
       username: "PepeREEE",
-      email: "obamer@hotmail.com",
+      email: "obamer3@hotmail.com",
       password: "123"
     },
     {
@@ -34,14 +34,17 @@ const registerReducer = (state = initialState, action) => {
       return state;
     case REGISTER_SUCCESS: {
       const { user } = action.payload;
-      console.log(user);
-      console.log(state);
       return {
         ...state,
-        users: [...state.users, user]
+        users: [...state.users, user],
+        error: null
       };
     }
     case REGISTER_FAILURE:
+      return {
+        ...state,
+        error: action.message
+      };
     default:
       return state;
   }

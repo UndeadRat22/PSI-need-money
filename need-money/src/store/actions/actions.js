@@ -15,13 +15,15 @@ export const login = (username, password) => {
 export const register = (email, username, password, confirm, users) => {
   if (password !== confirm) {
     return {
-      type: REGISTER_FAILURE
+      type: REGISTER_FAILURE,
+      message: "passwords do not match"
     };
   }
   //duplicate username
   if (users.find(user => user.username == username) !== undefined) {
     return {
-      type: REGISTER_FAILURE
+      type: REGISTER_FAILURE,
+      message: "user already exists"
     };
   }
 

@@ -9,10 +9,14 @@ import {
   Keyboard,
   View,
   TextInput,
+  Text,
   TouchableWithoutFeedback,
   KeyboardAvoidingView,
-  Image
+  TouchableOpacity,
+  Image,
+  StyleSheet
 } from "react-native";
+import { Actions } from "react-native-router-flux";
 
 class Register extends React.Component {
   state = {
@@ -76,6 +80,13 @@ class Register extends React.Component {
                 onPress={() => this.registerSubmitHandler()}
                 title="Register"
               />
+              <TouchableOpacity
+                onPress={() => {
+                  Actions.login();
+                }}
+              >
+                <Text style={styles.whiteText}>Already got an account?</Text>
+              </TouchableOpacity>
             </View>
           </View>
         </TouchableWithoutFeedback>
@@ -90,9 +101,7 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  console.log("ownProps:");
-  console.log(ownProps);
+const mapDispatchToProps = dispatch => {
   return {
     tryRegister: ({ email, username, password, confirm }, registrationInfo) => {
       dispatch(

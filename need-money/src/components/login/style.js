@@ -9,12 +9,12 @@ export default {
     fontSize: 40,
     fontWeight: "800",
     color: "#00848e",
-    marginTop: 150,
+    marginTop: 100,
     marginBottom: 30,
     textAlign: "center"
   },
   image: {
-    marginTop: 100,
+    marginTop: 0,
     marginBottom: 30,
     marginLeft: 56,
     height: 240,
@@ -50,5 +50,15 @@ export default {
     height: 45,
     marginTop: 10,
     backgroundColor: "transparent"
+  },
+  whiteText: {
+    height: 43,
+    fontSize: 14,
+    textAlign: "center",
+    color: "#FFFFFF",
+    paddingLeft: 10,
+    marginLeft: 30,
+    marginRight: 30,
+    marginBottom: 5
   }
 };
