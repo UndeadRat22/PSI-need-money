@@ -45,8 +45,8 @@ class Login extends React.Component {
       <KeyboardAvoidingView style={styles.containerView} behavior="padding">
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.loginScreenContainer}>
-            <View style={styles.loginFormView}>
-              <Image source={icon} style={styles.image} />
+            <View style={styles.backgroundColorView}>
+              <Image source={icon} style={styles.iconImage} />
               <CustomTextInput
                 placeholder="Username"
                 onChangeText={value => this.setState({ username: value })}

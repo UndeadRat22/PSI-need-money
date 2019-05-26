@@ -5,15 +5,8 @@ export default {
   loginScreenContainer: {
     flex: 1
   },
-  logoText: {
-    fontSize: 40,
-    fontWeight: "800",
-    color: "#00848e",
-    marginTop: 100,
-    marginBottom: 30,
-    textAlign: "center"
-  },
-  image: {
+
+  iconImage: {
     marginTop: 0,
     marginBottom: 30,
     marginLeft: 56,
@@ -21,7 +14,20 @@ export default {
     width: 240,
     alignItems: "center"
   },
-  loginFormView: {
+  profilePicImage: {
+    marginTop: 60,
+    marginLeft: 80,
+    height: 200,
+    width: 200,
+    alignItems: "center"
+  },
+  settingsImage: {
+    marginTop: 10,
+    marginLeft: 315,
+    height: 40,
+    width: 40
+  },
+  backgroundColorView: {
     flex: 1,
     backgroundColor: "#021c1e"
   },
@@ -46,11 +52,6 @@ export default {
     marginLeft: 40,
     marginRight: 40
   },
-  fbLoginButton: {
-    height: 45,
-    marginTop: 10,
-    backgroundColor: "transparent"
-  },
   whiteText: {
     height: 43,
     fontSize: 14,
@@ -60,5 +61,11 @@ export default {
     marginLeft: 30,
     marginRight: 30,
     marginBottom: 5
+  },
+  profileWhiteText: {
+    height: 43,
+    fontSize: 14,
+    textAlign: "center",
+    color: "#FFFFFF"
   }
 };
