@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, FlatList } from "react-native";
 import { connect } from "react-redux";
 import styles from "../style";
 import { Button } from "react-native-elements";
@@ -18,8 +18,10 @@ class Profile extends React.Component {
         <Text style={styles.profileWhiteText}>{`Reitingas: ${
           user.rating
         }`}</Text>
-        <Button style={styles.loginButton} title="Paskolinti" />
-        <Button style={styles.loginButton} title="Pasiskolinti" />
+        <View style={{ flexDirection: "row" }}>
+          <Button buttonStyle={styles.button} title="Paskolinti" />
+          <Button buttonStyle={styles.button2} title="Pasiskolinti" />
+        </View>
       </View>
     );
   }

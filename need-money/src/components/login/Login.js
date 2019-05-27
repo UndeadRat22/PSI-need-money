@@ -57,7 +57,7 @@ class Login extends React.Component {
                 hidden
               />
               <Button
-                buttonStyle={styles.loginButton}
+                buttonStyle={styles.button}
                 onPress={() => this.loginSubmitHandler()}
                 title="Login"
               />

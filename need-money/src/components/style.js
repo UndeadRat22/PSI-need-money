@@ -31,6 +31,12 @@ export default {
     flex: 1,
     backgroundColor: "#021c1e"
   },
+  container: {
+    flex: 1,
+    backgroundColor: "#021c1e",
+    flexDirection: "row",
+    justifyContent: "space-between"
+  },
   loginFormTextInput: {
     height: 43,
     fontSize: 14,
@@ -44,13 +50,20 @@ export default {
     marginRight: 30,
     marginBottom: 5
   },
-  loginButton: {
+  button: {
     backgroundColor: "#00848e",
     borderRadius: 5,
     height: 45,
     marginTop: 10,
-    marginLeft: 40,
-    marginRight: 40
+    marginLeft: "15%",
+    marginRight: "15%"
+  },
+  button2: {
+    backgroundColor: "#00848e",
+    borderRadius: 5,
+    height: 45,
+    marginTop: 10,
+    marginRight: "15%"
   },
   whiteText: {
     height: 43,
