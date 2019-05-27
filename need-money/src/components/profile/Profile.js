@@ -26,12 +26,12 @@ class Profile extends React.Component {
         <View style={{ flexDirection: "row" }}>
           <Button
             buttonStyle={styles.button}
-            title="   Lend   "
+            title="   Lend    "
             onPress={() => Actions.push("lend")}
           />
           <Button
             buttonStyle={styles.button2}
-            title="   Borrow   "
+            title="    Borrow   "
             onPress={() => Actions.push("borrow")}
           />
         </View>

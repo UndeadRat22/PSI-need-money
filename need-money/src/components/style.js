@@ -59,6 +59,14 @@ export default {
     marginTop: 10,
     marginRight: "15%"
   },
+  settingsButton: {
+    backgroundColor: "#00848e",
+    borderRadius: 5,
+    height: 45,
+    marginTop: 50,
+    marginRight: "15%",
+    marginLeft: "15%"
+  },
   whiteText: {
     height: 43,
     fontSize: 14,
@@ -74,5 +82,11 @@ export default {
     fontSize: 14,
     textAlign: "center",
     color: "#FFFFFF"
+  },
+  item: {
+    color: "#FFFFFF",
+    padding: 10,
+    fontSize: 18,
+    height: 44
   }
 };

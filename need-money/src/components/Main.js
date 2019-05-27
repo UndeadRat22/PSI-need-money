@@ -15,7 +15,7 @@ const Main = () => (
       <Scene key="profile" component={Profile} title="Profile" />
       <Scene key="lend" component={Lend} title="Lend" />
       <Scene key="borrow" component={Borrow} title="Borrow" />
-      <Scene key="settings" component={Borrow} title="Settings" />
+      <Scene key="settings" component={Settings} title="Settings" />
     </Scene>
   </Router>
 );
