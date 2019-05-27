@@ -31,12 +31,6 @@ export default {
     flex: 1,
     backgroundColor: "#021c1e"
   },
-  container: {
-    flex: 1,
-    backgroundColor: "#021c1e",
-    flexDirection: "row",
-    justifyContent: "space-between"
-  },
   loginFormTextInput: {
     height: 43,
     fontSize: 14,
