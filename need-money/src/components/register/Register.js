@@ -43,8 +43,8 @@ class Register extends React.Component {
       <KeyboardAvoidingView style={styles.containerView} behavior="padding">
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.loginScreenContainer}>
-            <View style={styles.loginFormView}>
-              <Image source={icon} style={styles.image} />
+            <View style={styles.backgroundColorView}>
+              <Image source={icon} style={styles.iconImage} />
               <CustomTextInput
                 placeholder="Email"
                 onChangeText={value => this.setState({ email: value })}
@@ -64,7 +64,7 @@ class Register extends React.Component {
                 hidden
               />
               <Button
-                buttonStyle={styles.loginButton}
+                buttonStyle={styles.button}
                 onPress={() => this.registerSubmitHandler()}
                 title="Register"
               />
