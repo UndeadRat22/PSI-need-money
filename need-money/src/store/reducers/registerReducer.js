@@ -8,22 +8,26 @@ const initialState = {
     {
       username: "Barock",
       email: "obamer@hotmail.com",
-      password: "123"
+      password: "123",
+      rating: 10
     },
     {
       username: "Barock2",
       email: "obamer2@hotmail.com",
-      password: "123"
+      password: "123",
+      rating: 10
     },
     {
       username: "PepeREEE",
       email: "obamer3@hotmail.com",
-      password: "123"
+      password: "123",
+      rating: 10
     },
     {
       username: "WesAnderson",
       email: "kekistan@gadfg.com",
-      password: "123"
+      password: "123",
+      rating: 50
     }
   ]
 };
@@ -36,7 +40,7 @@ const registerReducer = (state = initialState, action) => {
       const { user } = action.payload;
       return {
         ...state,
-        users: [...state.users, user],
+        users: [...state.users, { ...user, rating: 0 }],
         error: null
       };
     }
