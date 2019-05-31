@@ -40,7 +40,6 @@ class Login extends React.Component {
 
   render() {
     const { loginInfo } = this.props;
-    console.log(loginInfo);
     return (
       <KeyboardAvoidingView style={styles.containerView} behavior="padding">
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>

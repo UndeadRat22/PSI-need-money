@@ -13,7 +13,7 @@ const initialState = {
   ]
 };
 
-const borrowReducer = (state = initialState, action) => {
+const requestReducer = (state = initialState, action) => {
   switch (action.type) {
     case BORROW_SUCCESS: {
       const { request } = action;
@@ -40,4 +40,4 @@ const borrowReducer = (state = initialState, action) => {
   }
 };
 
-export default borrowReducer;
+export default requestReducer;

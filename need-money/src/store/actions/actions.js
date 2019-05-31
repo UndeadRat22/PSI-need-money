@@ -6,15 +6,8 @@ import {
   LOAD_USERS,
   BORROW_SUCCESS,
   LEND,
-  LOAD_REQUESTS,
   BORROW_FAILURE
 } from "./types";
-
-export const loadRequests = () => {
-  return {
-    type: LOAD_REQUESTS
-  };
-};
 
 export const borrow = (username, users, amount) => {
   const user = users.find(registered => registered.username === username);

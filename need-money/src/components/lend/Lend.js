@@ -1,24 +1,36 @@
 import React from "react";
 import { AppRegistry, FlatList, StyleSheet, Text, View } from "react-native";
 import styles from "../style";
+import { connect } from "react-redux";
 
-export default class Lend extends React.Component {
+class Lend extends React.Component {
   render() {
+    console.log(this.props);
+    const { requests } = this.props;
+    const data = (requests || []).map((r, i) => {
+      return { key: i.toString(), title: `${r.amount}€` };
+    });
+    console.log(data);
     return (
       <View style={styles.backgroundColorView}>
         <FlatList
-          data={[
-            { key: "16€", subtitle: "yes" },
-            { key: "70€" },
-            { key: "6€" },
-            { key: "25€" },
-            { key: "67€" },
-            { key: "10€" },
-            { key: "4€" }
-          ]}
-          renderItem={({ item }) => <Text style={styles.item}>{item.key}</Text>}
+          data={data}
+          renderItem={({ item }) => (
+            <Text style={styles.item}>{item.title}</Text>
+          )}
         />
       </View>
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    requests: state.borrowRequests.requests
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(Lend);

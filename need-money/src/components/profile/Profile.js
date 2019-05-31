@@ -9,7 +9,6 @@ import { Actions } from "react-native-router-flux";
 
 class Profile extends React.Component {
   render() {
-    console.log(this.props);
     const { user } = this.props;
     return (
       <View style={styles.backgroundColorView}>

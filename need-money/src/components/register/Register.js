@@ -38,7 +38,6 @@ class Register extends React.Component {
 
   render() {
     const { registrationInfo } = this.props;
-    console.log(registrationInfo);
     return (
       <KeyboardAvoidingView style={styles.containerView} behavior="padding">
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
