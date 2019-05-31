@@ -3,11 +3,49 @@ import {
   LOGIN_FAILURE,
   REGISTER_FAILURE,
   REGISTER_SUCCESS,
-  LOAD_USERS
+  LOAD_USERS,
+  BORROW_SUCCESS,
+  LEND,
+  LOAD_REQUESTS,
+  BORROW_FAILURE
 } from "./types";
 
+export const loadRequests = () => {
+  return {
+    type: LOAD_REQUESTS
+  };
+};
+
+export const borrow = (username, users, amount) => {
+  const user = users.find(registered => registered.username === username);
+  if (user !== undefined && user.rating - amount > 0) {
+    return {
+      type: BORROW_SUCCESS,
+      request: {
+        username,
+        amount
+      }
+    };
+  }
+  return {
+    type: BORROW_FAILURE,
+    request: null,
+    reason: "Rating too low"
+  };
+};
+
+export const lend = (username, users, request) => {
+  const user = users.find(registered => registered.username === username);
+  if (user !== undefined) {
+    return {
+      type: LEND,
+      lender: user,
+      request
+    };
+  }
+};
+
 export const login = (username, password, users) => {
-  console.log(users);
   if (username == undefined || password == undefined) {
     return {
       type: LOGIN_FAILURE,
