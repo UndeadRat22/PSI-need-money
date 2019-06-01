@@ -7,3 +7,4 @@ export const BORROW_SUCCESS = "BORROW_SUCCESS";
 export const ADD_REQUEST = "ADD_REQUEST";
 export const LEND = "LEND";
 export const BORROW_FAILURE = "BORROW_FAILURE";
+export const UPDATE_USER = "UPDATE_USER";

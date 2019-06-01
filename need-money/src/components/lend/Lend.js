@@ -5,12 +5,10 @@ import { connect } from "react-redux";
 
 class Lend extends React.Component {
   render() {
-    console.log(this.props);
     const { requests } = this.props;
     const data = (requests || []).map((r, i) => {
       return { key: i.toString(), title: `${r.amount}€` };
     });
-    console.log(data);
     return (
       <View style={styles.backgroundColorView}>
         <FlatList
