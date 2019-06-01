@@ -1,7 +1,8 @@
 import {
   REGISTER_FAILURE,
   REGISTER_SUCCESS,
-  LOAD_USERS
+  LOAD_USERS,
+  UPDATE_USER
 } from "../actions/types";
 const initialState = {
   users: [
@@ -32,10 +33,19 @@ const initialState = {
   ]
 };
 
-const registerReducer = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD_USERS:
       return state;
+    case UPDATE_USER: {
+      const { user } = action;
+      const without = state.users.filter(u => u.username == user.username);
+      return {
+        ...state,
+        users: [...without, user],
+        error: null
+      };
+    }
     case REGISTER_SUCCESS: {
       const { user } = action.payload;
       return {
@@ -54,4 +64,4 @@ const registerReducer = (state = initialState, action) => {
   }
 };
 
-export default registerReducer;
+export default userReducer;

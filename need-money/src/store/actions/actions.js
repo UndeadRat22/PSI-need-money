@@ -6,26 +6,34 @@ import {
   LOAD_USERS,
   BORROW_SUCCESS,
   LEND,
-  BORROW_FAILURE
+  BORROW_FAILURE,
+  UPDATE_USER
 } from "./types";
 
-export const borrow = (username, users, amount) => {
-  const user = users.find(registered => registered.username === username);
-  if (user !== undefined && user.rating - amount > 0) {
-    return {
-      type: BORROW_SUCCESS,
-      request: {
-        username,
-        amount
-      }
-    };
-  }
-  return {
-    type: BORROW_FAILURE,
-    request: null,
-    reason: "Rating too low"
+export function borrow(username, users, amount) {
+  return function(dispatch, getState) {
+    const user = users.find(registered => registered.username === username);
+    if (user !== undefined && user.rating - amount > 0) {
+      dispatch({
+        type: BORROW_SUCCESS,
+        request: {
+          username,
+          amount
+        }
+      });
+      user.rating -= amount;
+      dispatch({
+        type: UPDATE_USER,
+        user
+      });
+    } else
+      dispatch({
+        type: BORROW_FAILURE,
+        request: null,
+        reason: "Rating too low"
+      });
   };
-};
+}
 
 export const lend = (username, users, request) => {
   const user = users.find(registered => registered.username === username);
