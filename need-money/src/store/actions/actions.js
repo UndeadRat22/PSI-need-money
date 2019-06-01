@@ -10,7 +10,7 @@ import {
   UPDATE_USER
 } from "./types";
 
-export function borrow(username, users, amount) {
+export const borrow = (username, users, amount) => {
   return function(dispatch, getState) {
     const user = users.find(registered => registered.username === username);
     if (user !== undefined && user.rating - amount > 0) {
@@ -33,17 +33,18 @@ export function borrow(username, users, amount) {
         reason: "Rating too low"
       });
   };
-}
+};
 
-export const lend = (username, users, request) => {
-  const user = users.find(registered => registered.username === username);
-  if (user !== undefined) {
-    return {
-      type: LEND,
-      lender: user,
-      request
-    };
-  }
+export const lend = request => {
+  return function(dispatch, getState) {
+    const { login, registration } = getState();
+    const { users } = registration;
+    console.log(login);
+    const user = users.find(r => r.username === login.user.username);
+    user.rating += request.data.amount;
+    dispatch({ type: LEND, request });
+    dispatch({ type: UPDATE_USER, user });
+  };
 };
 
 export const login = (username, password, users) => {

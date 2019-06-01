@@ -1,4 +1,4 @@
-import { BORROW_SUCCESS, BORROW_FAILURE } from "../actions/types";
+import { BORROW_SUCCESS, BORROW_FAILURE, LEND } from "../actions/types";
 
 const initialState = {
   requests: [
@@ -33,6 +33,15 @@ const requestReducer = (state = initialState, action) => {
           value: false,
           reason
         }
+      };
+    }
+    case LEND: {
+      const { request } = action;
+      const { requests } = state;
+      requests.splice(request.id, 1);
+      return {
+        ...state,
+        requests
       };
     }
     default:
