@@ -39,7 +39,6 @@ export const lend = request => {
   return function(dispatch, getState) {
     const { login, registration } = getState();
     const { users } = registration;
-    console.log(login);
     const user = users.find(r => r.username === login.user.username);
     user.rating += request.data.amount;
     dispatch({ type: LEND, request });
