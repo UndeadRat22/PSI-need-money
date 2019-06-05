@@ -7,16 +7,8 @@ export default class Settings extends React.Component {
   render() {
     return (
       <View style={styles.backgroundColorView}>
-        <Button
-          buttonStyle={styles.settingsButton}
-          // onPress={() => this.loginSubmitHandler()}
-          title="Delete account"
-        />
-        <Button
-          buttonStyle={styles.settingsButton}
-          // onPress={() => this.loginSubmitHandler()}
-          title="Advanced"
-        />
+        <Button buttonStyle={styles.settingsButton} title="Delete account" />
+        <Button buttonStyle={styles.settingsButton} title="Advanced" />
       </View>
     );
   }
