@@ -7,7 +7,7 @@ import Dialog, {
 import { Text } from "react-native";
 import styles from "../style";
 
-class LoginDialog extends React.Component {
+class RegisterDialog extends React.Component {
   render() {
     const { onDismiss, visible, onCancel, errorMessage } = this.props;
     return (
@@ -43,4 +43,4 @@ class LoginDialog extends React.Component {
   }
 }
 
-export default LoginDialog;
+export default RegisterDialog;

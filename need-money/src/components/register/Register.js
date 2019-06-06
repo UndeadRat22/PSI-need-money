@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import styles from "../style";
 import icon from "../login/icon.png";
 import { register, loadUsers } from "../../store/actions/actions";
+import RegisterDialog from "./RegisterDialog";
+import RegisterSuccessDialog from "./RegisterSuccessDialog";
 
 import { Button } from "react-native-elements";
 import {
@@ -44,6 +46,17 @@ class Register extends React.Component {
           <View style={styles.loginScreenContainer}>
             <View style={styles.backgroundColorView}>
               <Image source={icon} style={styles.iconImage} />
+              <RegisterDialog
+                errorMessage={registrationInfo.error}
+                visible={this.state.showDialog}
+                onDismiss={() => this.setState({ showDialog: false })}
+                onCancel={() => this.setState({ showDialog: false })}
+              />
+              <RegisterSuccessDialog
+                visible={this.state.showSuccessDialog}
+                onDismiss={() => this.setState({ showSuccessDialog: false })}
+                onCancel={() => this.setState({ showSuccessDialog: false })}
+              />
               <CustomTextInput
                 placeholder="Email"
                 onChangeText={value => this.setState({ email: value })}
@@ -64,7 +77,17 @@ class Register extends React.Component {
               />
               <Button
                 buttonStyle={styles.button}
-                onPress={() => this.registerSubmitHandler()}
+                onPress={() => {
+                  this.registerSubmitHandler();
+                  if (registrationInfo.error != null) {
+                    this.setState({
+                      showDialog: true
+                    });
+                  }
+                  this.setState({
+                    showSuccessDialog: true
+                  });
+                }}
                 title="Register"
               />
               <TouchableOpacity

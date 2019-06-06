@@ -7,40 +7,30 @@ import Dialog, {
 import { Text } from "react-native";
 import styles from "../style";
 
-class LoginDialog extends React.Component {
+class RegisterSuccessDialog extends React.Component {
   render() {
-    const { onDismiss, visible, onCancel, errorMessage } = this.props;
+    const { onDismiss, visible, onCancel } = this.props;
     return (
       <Dialog
         onDismiss={onDismiss}
-        errorMessage={errorMessage}
         width={0.9}
         visible={visible}
         rounded
         actionsBordered
         dialogTitle={
           <DialogTitle
-            title="A problem occurred"
+            title="Registration successful"
             style={styles.dialogBackground}
             hasTitleBar={false}
-            align="left"
+            align="center"
           />
         }
         footer={
-          <DialogButton
-            text="Try Again"
-            bordered
-            onPress={onCancel}
-            key="button-1"
-          />
+          <DialogButton text="OK" bordered onPress={onCancel} key="button-1" />
         }
-      >
-        <DialogContent style={styles.dialogBackground}>
-          <Text>{errorMessage}</Text>
-        </DialogContent>
-      </Dialog>
+      />
     );
   }
 }
 
-export default LoginDialog;
+export default RegisterSuccessDialog;
