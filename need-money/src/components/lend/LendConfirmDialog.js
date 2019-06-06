@@ -5,8 +5,8 @@ import Dialog, {
   DialogFooter,
   DialogButton
 } from "react-native-popup-dialog";
-import { Text, View } from "react-native";
-import { Button } from "react-native-elements";
+import { Text } from "react-native";
+import styles from "../style";
 
 class LendConfirmDialog extends React.Component {
   render() {
@@ -21,9 +21,7 @@ class LendConfirmDialog extends React.Component {
         dialogTitle={
           <DialogTitle
             title="Confirmation"
-            style={{
-              backgroundColor: "#F7F7F8"
-            }}
+            style={styles.dialogBackground}
             hasTitleBar={false}
             align="left"
           />
@@ -45,11 +43,7 @@ class LendConfirmDialog extends React.Component {
           </DialogFooter>
         }
       >
-        <DialogContent
-          style={{
-            backgroundColor: "#F7F7F8"
-          }}
-        >
+        <DialogContent style={styles.dialogBackground}>
           <Text>Are you sure you want to lend this sum?</Text>
         </DialogContent>
       </Dialog>

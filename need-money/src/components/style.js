@@ -6,6 +6,9 @@ export default {
     flex: 1
   },
 
+  dialogBackground: {
+    backgroundColor: "#F7F7F8"
+  },
   iconImage: {
     marginTop: 0,
     marginBottom: 30,

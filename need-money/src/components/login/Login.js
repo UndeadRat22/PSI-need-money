@@ -6,7 +6,6 @@ import { login } from "../../store/actions/actions";
 import {
   Keyboard,
   View,
-  Alert,
   TouchableWithoutFeedback,
   TouchableOpacity,
   Text,
@@ -17,12 +16,14 @@ import { Button } from "react-native-elements";
 import icon from "./icon.png";
 import { Actions } from "react-native-router-flux";
 import CustomTextInput from "../general/CustomTextInput";
+import LoginDialog from "./LoginDialog";
 
 class Login extends React.Component {
   state = {
     username: null,
     password: null,
-    error: null
+    error: null,
+    showDialog: false
   };
 
   loginSubmitHandler = () => {
@@ -45,6 +46,12 @@ class Login extends React.Component {
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.loginScreenContainer}>
             <View style={styles.backgroundColorView}>
+              <LoginDialog
+                errorMessage={loginInfo.error}
+                visible={this.state.showDialog}
+                onDismiss={() => this.setState({ showDialog: false })}
+                onCancel={() => this.setState({ showDialog: false })}
+              />
               <Image source={icon} style={styles.iconImage} />
               <CustomTextInput
                 placeholder="Username"
@@ -57,7 +64,14 @@ class Login extends React.Component {
               />
               <Button
                 buttonStyle={styles.button}
-                onPress={() => this.loginSubmitHandler()}
+                onPress={() => {
+                  this.loginSubmitHandler();
+                  if (loginInfo.error != null) {
+                    this.setState({
+                      showDialog: true
+                    });
+                  }
+                }}
                 title="Login"
               />
               <TouchableOpacity
