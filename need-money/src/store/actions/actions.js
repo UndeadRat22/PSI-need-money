@@ -83,7 +83,15 @@ export const register = (email, username, password, confirm, users) => {
   if (users.find(user => user.username == username) !== undefined) {
     return {
       type: REGISTER_FAILURE,
-      message: "user already exists"
+      message: "username already in use"
+    };
+  }
+
+  //duplicate email
+  if (users.find(user => user.email == email) !== undefined) {
+    return {
+      type: REGISTER_FAILURE,
+      message: "email already in use"
     };
   }
 
