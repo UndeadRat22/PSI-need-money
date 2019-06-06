@@ -26,8 +26,8 @@ class Lend extends React.Component {
           onDismiss={() => this.setState({ showDialog: false })}
           onCancel={() => this.setState({ showDialog: false })}
           onConfirm={() => {
-            tryLend(this.state.dialogRequest);
             this.setState({ showDialog: false });
+            tryLend(this.state.dialogRequest);
           }}
         />
         <FlatList
