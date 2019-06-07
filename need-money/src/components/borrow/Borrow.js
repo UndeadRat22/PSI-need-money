@@ -12,16 +12,13 @@ class Borrow extends React.Component {
   state = {
     amount: 0
   };
-  //idk why but never called xd
-  //cuz u never update the props u idiot <3
+
   componentDidUpdate() {
     const { requests } = this.props;
     if (requests.success === undefined) {
       return;
     }
     if (requests.success.value) {
-      // TODO: padaryt kad čia atidarytų ne profile, o langą kuriam
-      // rodo kad request pridėtas?
       Actions.push("profile");
     }
   }
