@@ -25,7 +25,9 @@ class Register extends React.Component {
     email: null,
     username: null,
     password: null,
-    confirm: null
+    confirm: null,
+    showDialog: false,
+    showSuccessDialog: false
   };
 
   registerSubmitHandler = () => {

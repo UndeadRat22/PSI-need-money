@@ -28,6 +28,7 @@ class RegisterSuccessDialog extends React.Component {
         footer={
           <DialogButton text="OK" bordered onPress={onCancel} key="button-1" />
         }
+        children={undefined}
       />
     );
   }
