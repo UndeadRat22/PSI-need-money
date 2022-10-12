@@ -10,7 +10,7 @@
     "expo": "^33.0.0",
     "react-native": "^0.59.10",
     "react-native-elements": "^1.1.0",
-    "react-native-fbsdk": "^0.8.0",
+    "react-native-fbsdk": "^3.0.0",
     "react-native-popup-dialog": "^0.18.2",
     "react-native-router-flux": "^4.0.6",
     "react-redux": "^6.0.1",
